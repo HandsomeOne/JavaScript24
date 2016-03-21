@@ -1,4 +1,4 @@
-#[JavaScript24](https://handsomeone.github.io/JavaScript24)
+#[JavaScript24](http://handsomeone.github.io/JavaScript24/)
 
 A minimal arithmetical game with JavaScript syntax.
 
