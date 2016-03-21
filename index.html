@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>24</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <h1>
+    <div id="js-background"></div>
+    <div id="js">JS</div>
+    <div id="twenty-four">24</div>
+    <div id="result"></div>
+  </h1>
+
+  <div id="expr-wrapper">
+    <div id="expr-caret">&gt;</div>
+    <input id="expr" autocomplete="off" type="text" autofocus="autofocus">
+  </div>
+
+  <div id="stats">
+    <table>
+      <tr>
+        <td>{{won}}</td>
+        <td id="won"></td>
+      </tr>
+      <tr>
+        <td>{{total}}</td>
+        <td id="total"></td>
+      </tr>
+      <tr>
+        <td>{{averageLength}}</td>
+        <td id="average-length"></td>
+      </tr>
+    </table>
+  </div>
+
+  <ul id="digits">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <div id="hints">
+      <div>{{tooHard}}</div>
+    </div>
+  </ul>
+
+  <ol id="rules">
+    <li>{{rule0}}</li>
+    <li>{{rule1}}</li>
+    <li>{{rule2}}</li>
+    <li>{{rule3}}</li>
+    <li>{{rule4}}</li>
+  </ol>
+
+  <footer>
+    <a href="https://github.com/HandsomeOne/JavaScript24" target="_blank">· Fork me on GitHub ·</a>
+  </footer>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

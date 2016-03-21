@@ -1,0 +1,242 @@
+@font-face {
+  font-family: "Source Sans Pro";
+  font-weight: bold;
+  src: url(../font/SourceSansPro-Bold.otf);
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  font-weight: normal;
+  src: url(../font/SourceSansPro-Regular.otf);
+}
+
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  margin: 0 auto;
+  max-width: 960px;
+  color: #373a33;
+  position: relative;
+}
+code {
+  font-family: 'Fira Code', monospace;
+  text-rendering: optimizeLegibility;
+}
+
+h1 {
+  font-size: 64px;
+  margin: 0;
+  height: 100px;
+  position: relative;
+  letter-spacing: -3px;
+}
+#js-background {
+  position: absolute;
+  width: 0;
+  height: 100px;
+  background-color: #ffcd00;
+  animation: js-background 0.5s ease-in forwards;
+}
+@keyframes js-background {
+  to { width: 100px; }
+}
+
+#js {
+  position: absolute;
+  bottom: 0;
+  left: 8px;
+  color: #373a33;
+  opacity: 0;
+  animation: js 0.75s 0.25s ease-in-out forwards;
+}
+@keyframes js {
+  to { left: 24px; opacity: 1; }
+}
+
+#twenty-four {
+  position: absolute;
+  left: 128px;
+  bottom: 0;
+  color: #ffcd00;
+  opacity: 0;
+  animation: twenty-four 0.75s 0.25s ease-in-out forwards;
+}
+@keyframes twenty-four {
+  to { left: 112px; opacity: 1; }
+}
+
+#result {
+  position: absolute;
+  left: 112px;
+  bottom: 0;
+  max-width: calc(100% - 224px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 12px;
+}
+
+#expr-wrapper {
+  position: relative;
+  font-family: 'Fira Code', monospace;
+}
+#expr-caret {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  color: white;
+  line-height: 0;
+  opacity: 0.5;
+}
+#expr {
+  font-family: 'Fira Code', monospace;
+  background-color: #373a33;
+  color: white;
+  width: 100%;
+  border-width: 0;
+  box-sizing: border-box;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 10px;
+  padding-left: 36px;
+  text-align: right;
+}
+#expr:focus {
+  outline: 0 none;
+}
+
+#stats {
+  background-color: #ffcd00;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  font-size: 12px;
+}
+#stats:hover {
+  opacity: 1;
+}
+#stats td {
+  text-transform: uppercase;
+  vertical-align: top;
+  padding: 0 0.2em;
+}
+#stats td[id] {
+  text-align: right;
+  font-weight: bold;
+}
+
+#digits {
+  margin: 0;
+  padding: 0;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+#digits li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 50px;
+  height: 50px;
+  float: left;
+  text-align: center;
+  font-size: 32px;
+  line-height: 50px;
+  font-weight: bold;
+}
+#digits li > div {
+  width: 50px;
+  height: 50px;
+}
+#digits .style-0 {
+  background: white;
+  color: #373a33;
+}
+#digits .style-1 {
+  background: #ffcd00;
+  color: #373a33;
+}
+#digits .style-2 {
+  background: #373a33;
+  color: #ffcd00;
+}
+#digits .style-3 {
+  background: #373a33;
+  color: white;
+}
+
+#hints {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  background: #373a33;
+  color: #ffcd00;
+  display: table;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+#hints:hover {
+  opacity: 1;
+}
+#hints > div {
+  display: table-cell;
+  vertical-align: middle;
+}
+#hints code {
+  font-weight: bold;
+  background-color: #ffcd00;
+  color: #373a33;
+  padding: 0 0.2em;
+}
+
+#rules {
+  margin: 16px 0;
+  padding: 0;
+}
+#rules li {
+  list-style-type: none;
+  line-height: 22px;
+  padding: 4px 16px;
+  transition: background-color 0.5s;
+}
+#rules li b {
+  text-shadow: 0 -4px 0 white;
+}
+#rules li.bad {
+  background-color: #ffcd00;
+}
+#rules code {
+  font-weight: bold;
+  background-color: #373a33;
+  color: #ffcd00;
+  padding: 0 0.2em;
+}
+
+footer {
+  text-align: center;
+  height: 32px;
+  line-height: 32px;
+  position: relative;
+  border: 4px solid #373a33;
+  transition: background-color 0.5s;
+}
+footer:hover {
+  background-color: #ffcd00;
+}
+footer a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #373a33;
+  display: block;
+}
