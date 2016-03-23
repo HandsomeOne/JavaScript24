@@ -81,6 +81,10 @@ function check(result) {
   }
 }
 function refresh() {
+  $('#stats').className = 'hover';
+  setTimeout(function() {
+    $('#stats').className = '';
+  }, 1000);
   $('#expr').value = '';
   $('#result').innerHTML = '';
   localStorage.digits = (Math.random() + '').substr(2, 4);

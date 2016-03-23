@@ -26,8 +26,17 @@ code {
   font-family: 'Fira Code', monospace;
 }
 
-h1 {
+header {
   font-size: 4rem;
+}
+@media (max-width: 520px) {
+  header {
+    font-size: 3rem;
+  }
+}
+
+h1 {
+  font-size: 1em;
   font-weight: bold;
   margin: 0;
   height: 1.5625em;
@@ -82,15 +91,15 @@ h1 {
 
 #stats {
   background-color: #ffcd00;
-  font-size: 4rem;
   width: 1.5625em;
   height: 1.5625em;
   position: absolute;
   top: 0;
   left: 0;
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.5s;
 }
+#stats.hover,
 #stats:hover {
   opacity: 1;
 }
@@ -106,7 +115,6 @@ h1 {
 }
 
 #digits {
-  font-size: 4rem;
   margin: 0;
   padding: 0;
   width: 1.5625em;
@@ -229,10 +237,9 @@ h1 {
 #hints {
   position: absolute;
   top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  font-size: 0.25em;
+  right: 0;
+  width: 1.5625em;
+  height: 1.5625em;
   text-align: center;
   background: #373a33;
   color: #ffcd00;
@@ -244,6 +251,7 @@ h1 {
   opacity: 1;
 }
 #hints > div {
+  font-size: 0.25em;
   display: table-cell;
   vertical-align: middle;
 }
@@ -322,10 +330,4 @@ footer a {
   font-weight: bold;
   color: #373a33;
   display: block;
-}
-
-@media (max-width: 520px) {
-  h1, #stats, #digits {
-    font-size: 3rem;
-  }
 }
