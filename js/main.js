@@ -6,29 +6,42 @@ function $$(selector) {
 }
 
 $('#expr').addEventListener('input', function() {
+  var expr = $('#expr').value.replace(/\s/g, '');
+  $('#expr').value = expr;
   var rules = $$('#rules li');
-  var expr = $('#expr').value;
-  $('#result').innerHTML = expr;
   for (var i = 0, l = rules.length; i < l; i++) {
     rules[i].className = '';
   }
-  if (expr === '') {
-    return;
-  } else if (expr.toLowerCase() === 'skip') {
-    refresh();
-    return;
-  }
-
-  try {
-    var result = eval($('#expr').value);
-    if (result === null) {
-      $('#result').innerHTML = 'null';
-    } else {
-      $('#result').innerHTML = result;
-    }
-    check(result);
-  } catch (e) {
-    rules[0].className = 'bad';
+  switch (expr) {
+    case '':
+      $('#result').innerHTML = '';
+      return;
+    case 's':
+      $('#result').innerHTML = '~ is useful';
+      return;
+    case 'sk':
+      $('#result').innerHTML = 'x&lt;&lt;y is x*2<sup>y</sup>';
+      return;
+    case 'ski':
+      $('#result').innerHTML = 'try & | ^';
+      return;
+    case 'skip':
+      $('#result').innerHTML = 'such difficult';
+      refresh();
+      return;
+    default:
+      try {
+        var result = eval($('#expr').value);
+        if (result === null) {
+          $('#result').innerHTML = 'null';
+        } else {
+          $('#result').innerHTML = result;
+        }
+        check(result);
+      } catch (e) {
+        $('#result').innerHTML = expr;
+        rules[0].className = 'bad';
+      }
   }
 });
 function check(result) {
@@ -49,7 +62,7 @@ function check(result) {
   }
   if (digitsAppeared !== 4 || e.match(/\d/)) {
     rules[2].className = 'bad';
-    e = e.replace(/[\d\s]/g, '');
+    e = e.replace(/\d/g, '');
     valid = false;
   }
   if (e.match(/-/)) {
@@ -77,12 +90,24 @@ function refresh() {
 function print() {
   var digits = $$('#digits li');
   for (var i = 0; i < 4; i++) {
-    digits[i].className = 'style-' + Math.floor(Math.random() * 4);
-    digits[i].innerHTML = localStorage.digits[i];
+    var digit = document.createElement('div');
+    digit.className = 'style-' + Math.floor(Math.random() * 4);
+    digit.innerHTML = localStorage.digits[i];
+    digits[i].className = 'animation-' + Math.floor(Math.random() * 6);
+    digits[i].appendChild(digit);
   }
   $('#won').innerHTML = localStorage.won;
   $('#total').innerHTML = localStorage.total;
   $('#average-length').innerHTML = localStorage.averageLength.substr(0, 4);
+  setTimeout(removeOldDigits, 500);
+}
+function removeOldDigits() {
+  var digits = $$('#digits li');
+  for (var i = 0; i < 4; i++) {
+    while (digits[i].children.length > 1) {
+      digits[i].removeChild(digits[i].children[0]);
+    }
+  }
 }
 function resize() {
   parent.postMessage({

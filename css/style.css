@@ -20,62 +20,238 @@ body {
   max-width: 960px;
   color: #373a33;
   position: relative;
+  text-rendering: optimizeLegibility;
 }
 code {
   font-family: 'Fira Code', monospace;
-  text-rendering: optimizeLegibility;
 }
 
 h1 {
-  font-size: 64px;
+  font-size: 4rem;
+  font-weight: bold;
   margin: 0;
-  height: 100px;
+  height: 1.5625em;
   position: relative;
-  letter-spacing: -3px;
+  letter-spacing: -0.05em;
 }
 #js-background {
   position: absolute;
   width: 0;
-  height: 100px;
+  height: 1.5625em;
   background-color: #ffcd00;
   animation: js-background 0.5s ease-in forwards;
 }
 @keyframes js-background {
-  to { width: 100px; }
+  to { width: 1.5625em; }
 }
 
 #js {
   position: absolute;
   bottom: 0;
-  left: 8px;
+  left: 0.125em;
   color: #373a33;
   opacity: 0;
   animation: js 0.75s 0.25s ease-in-out forwards;
 }
 @keyframes js {
-  to { left: 24px; opacity: 1; }
+  to { left: 0.375em; opacity: 1; }
 }
 
 #twenty-four {
   position: absolute;
-  left: 128px;
+  left: 2em;
   bottom: 0;
   color: #ffcd00;
   opacity: 0;
   animation: twenty-four 0.75s 0.25s ease-in-out forwards;
 }
 @keyframes twenty-four {
-  to { left: 112px; opacity: 1; }
+  to { left: 1.75em; opacity: 1; }
 }
 
 #result {
   position: absolute;
-  left: 112px;
+  left: 1.75em;
   bottom: 0;
-  max-width: calc(100% - 224px);
+  max-width: calc(100% - 3.5em);
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding-right: 12px;
+  padding-right: 0.1em;
+}
+
+#stats {
+  background-color: #ffcd00;
+  font-size: 4rem;
+  width: 1.5625em;
+  height: 1.5625em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+#stats:hover {
+  opacity: 1;
+}
+#stats td {
+  text-transform: uppercase;
+  vertical-align: top;
+  font-size: 0.1875em;
+  padding: 0 0.2em;
+}
+#stats td[id] {
+  text-align: right;
+  font-weight: bold;
+}
+
+#digits {
+  font-size: 4rem;
+  margin: 0;
+  padding: 0;
+  width: 1.5625em;
+  height: 1.5625em;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+#digits li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 50%;
+  height: 50%;
+  text-align: center;
+  font-size: 50%;
+  line-height: 1.5625em;
+  font-weight: bold;
+  position: absolute;
+  overflow: hidden;
+}
+#digits li:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+#digits li:nth-child(2) {
+  top: 0;
+  left: 50%;
+}
+#digits li:nth-child(3) {
+  top: 50%;
+  left: 0;
+}
+#digits li:nth-child(4) {
+  top: 50%;
+  left: 50%;
+}
+#digits .style-0 {
+  background: white;
+  color: #373a33;
+}
+#digits .style-1 {
+  background: #ffcd00;
+  color: #373a33;
+}
+#digits .style-2 {
+  background: #373a33;
+  color: #ffcd00;
+}
+#digits .style-3 {
+  background: #373a33;
+  color: white;
+}
+#digits li > div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+#digits li.animation-0 > div:last-child {
+  top: 0;
+  animation: animation-0 0.5s ease-out forwards;
+}
+@keyframes animation-0 {
+  from { left: 100%; }
+  to { left: 0; }
+}
+#digits li.animation-1 > div:last-child {
+  top: 0;
+  animation: animation-1 0.5s ease-out forwards;
+}
+@keyframes animation-1 {
+  from { left: -100%; }
+  to { left: 0; }
+}
+#digits li.animation-2 > div:last-child {
+  left: 0;
+  animation: animation-2 0.5s ease-out forwards;
+}
+@keyframes animation-2 {
+  from { top: 100%; }
+  to { top: 0; }
+}
+#digits li.animation-3 > div:last-child {
+  left: 0;
+  animation: animation-3 0.5s ease-out forwards;
+}
+@keyframes animation-3 {
+  from { top: -100%; }
+  to { top: 0; }
+}
+#digits li.animation-4 > div {
+  transform: scaleX(1);  
+  animation: animation-4-old 0.25s ease-in forwards;
+}
+@keyframes animation-4-old {
+  to { transform: scaleX(0); }
+}
+#digits li.animation-4 > div:last-child {
+  transform: scaleX(0);
+  animation: animation-4 0.25s 0.25s ease-out forwards;
+}
+@keyframes animation-4 {
+  to { transform: scaleX(1); }
+}
+#digits li.animation-5 > div {
+  transform: scaleY(1);  
+  animation: animation-5-old 0.25s ease-in forwards;
+}
+@keyframes animation-5-old {
+  to { transform: scaleY(0); }
+}
+#digits li.animation-5 > div:last-child {
+  transform: scaleY(0);
+  animation: animation-5 0.25s 0.25s ease-out forwards;
+}
+@keyframes animation-5 {
+  to { transform: scaleY(1); }
+}
+
+#hints {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  font-size: 0.25em;
+  text-align: center;
+  background: #373a33;
+  color: #ffcd00;
+  display: table;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+#hints:hover {
+  opacity: 1;
+}
+#hints > div {
+  display: table-cell;
+  vertical-align: middle;
+}
+#hints code {
+  font-weight: bold;
+  background-color: #ffcd00;
+  color: #373a33;
+  padding: 0 0.2em;
 }
 
 #expr-wrapper {
@@ -105,99 +281,6 @@ h1 {
 }
 #expr:focus {
   outline: 0 none;
-}
-
-#stats {
-  background-color: #ffcd00;
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  font-size: 12px;
-}
-#stats:hover {
-  opacity: 1;
-}
-#stats td {
-  text-transform: uppercase;
-  vertical-align: top;
-  padding: 0 0.2em;
-}
-#stats td[id] {
-  text-align: right;
-  font-weight: bold;
-}
-
-#digits {
-  margin: 0;
-  padding: 0;
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-#digits li {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  width: 50px;
-  height: 50px;
-  float: left;
-  text-align: center;
-  font-size: 32px;
-  line-height: 50px;
-  font-weight: bold;
-}
-#digits li > div {
-  width: 50px;
-  height: 50px;
-}
-#digits .style-0 {
-  background: white;
-  color: #373a33;
-}
-#digits .style-1 {
-  background: #ffcd00;
-  color: #373a33;
-}
-#digits .style-2 {
-  background: #373a33;
-  color: #ffcd00;
-}
-#digits .style-3 {
-  background: #373a33;
-  color: white;
-}
-
-#hints {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  text-align: center;
-  background: #373a33;
-  color: #ffcd00;
-  display: table;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-#hints:hover {
-  opacity: 1;
-}
-#hints > div {
-  display: table-cell;
-  vertical-align: middle;
-}
-#hints code {
-  font-weight: bold;
-  background-color: #ffcd00;
-  color: #373a33;
-  padding: 0 0.2em;
 }
 
 #rules {
@@ -239,4 +322,10 @@ footer a {
   font-weight: bold;
   color: #373a33;
   display: block;
+}
+
+@media (max-width: 520px) {
+  h1, #stats, #digits {
+    font-size: 3rem;
+  }
 }
