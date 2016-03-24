@@ -31,7 +31,7 @@ $('#expr').addEventListener('input', function() {
       $('#stats').className = 'hover';
       setTimeout(function() {
         $('#stats').className = '';
-      }, 1000);
+      }, 1500);
       $('#result').innerHTML = '';
       return;
     default:
@@ -98,13 +98,15 @@ function success() {
   }, 250);
   setTimeout(function() {
     $('#stats').className = '';
-  }, 2000);
+  }, 1750);
   setTimeout(function() {
     $('#result').className = '';
     $('#result').innerHTML = '';
+    refresh();
+  }, 2250);
+  setTimeout(function() {
     $('#solution').className = '';
     $('#solution').innerHTML = '';
-    refresh();
   }, 2500);
 }
 function refresh() {
