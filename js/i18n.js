@@ -23,9 +23,9 @@ i18n['zh-CN'] = {
 };
 
 var language = 'en';
-// if (navigator.language in i18n) {
-//   language = navigator.language;
-// }
+if (navigator.language in i18n) {
+  language = navigator.language;
+}
 document.body.innerHTML = document.body.innerHTML.replace(/\{\{.*?\}\}/g, function(match) {
   return i18n[language][match.slice(2, -2)];
 });

@@ -26,8 +26,13 @@ $('#expr').addEventListener('input', function() {
       $('#result').innerHTML = 'try & | ^';
       return;
     case 'skip':
-      $('#result').innerHTML = 'such difficult';
+      localStorage.total = + localStorage.total + 1;
       refresh();
+      $('#stats').className = 'hover';
+      setTimeout(function() {
+        $('#stats').className = '';
+      }, 1000);
+      $('#result').innerHTML = '';
       return;
     default:
       try {
@@ -47,7 +52,7 @@ $('#expr').addEventListener('input', function() {
 function check(result) {
   var rules = $$('#rules li');
   var expr = $('#expr').value;
-  var e = expr.replace(/(\d)-/g, /$1/).replace(/&&|\|\|/g, '#').replace(/>>|<<|[+*\/%~^&|()]/g, '').replace(/0x/ig, '0');
+  var e = expr.replace(/(\d|\))-/g, /$1/).replace(/&&|\|\|/g, '#').replace(/>>|<<|[+*\/%~^&|()]/g, '').replace(/0x/ig, '0');
   var digitsAppeared = 0;
   for (i = 0; i < 4; i++) {
     if (e.match(localStorage.digits[i])) {
@@ -75,21 +80,40 @@ function check(result) {
     valid = false;
   }
   if (valid) {
-    localStorage.averageLength = (localStorage.averageLength * localStorage.won + expr.length) / (+ localStorage.won + 1);
-    localStorage.won = + localStorage.won + 1;
-    refresh();
+    success();
   }
 }
-function refresh() {
-  $('#stats').className = 'hover';
+function success() {
+  localStorage.averageLength = (localStorage.averageLength * localStorage.won + $('#expr').value.length) / (+ localStorage.won + 1);
+  localStorage.won = + localStorage.won + 1;
+  localStorage.total = + localStorage.total + 1;
+
+  $('#result').className = 'animate';
+  $('#solution').className = 'animate';
+  $('#solution').innerHTML = ' = ' + $('#expr').value;
+  $('#expr').setAttribute('disabled', '');
+  setTimeout(function(params) {
+    printStats();
+    $('#stats').className = 'hover';
+  }, 250);
   setTimeout(function() {
     $('#stats').className = '';
-  }, 1000);
-  $('#expr').value = '';
-  $('#result').innerHTML = '';
+  }, 2000);
+  setTimeout(function() {
+    $('#result').className = '';
+    $('#result').innerHTML = '';
+    $('#solution').className = '';
+    $('#solution').innerHTML = '';
+    refresh();
+  }, 2500);
+}
+function refresh() {
   localStorage.digits = (Math.random() + '').substr(2, 4);
-  localStorage.total = + localStorage.total + 1;
   print();
+
+  $('#expr').value = '';
+  $('#expr').removeAttribute('disabled');
+  $('#expr').focus();
 }
 function print() {
   var digits = $$('#digits li');
@@ -100,10 +124,14 @@ function print() {
     digits[i].className = 'animation-' + Math.floor(Math.random() * 6);
     digits[i].appendChild(digit);
   }
+  setTimeout(removeOldDigits, 500);
+
+  printStats();
+}
+function printStats() {
   $('#won').innerHTML = localStorage.won;
   $('#total').innerHTML = localStorage.total;
   $('#average-length').innerHTML = localStorage.averageLength.substr(0, 4);
-  setTimeout(removeOldDigits, 500);
 }
 function removeOldDigits() {
   var digits = $$('#digits li');
