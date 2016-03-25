@@ -6,8 +6,12 @@ function $$(selector) {
 }
 
 $('#expr').addEventListener('input', function() {
+  var oldValue = $('#expr').value;
   var expr = $('#expr').value.replace(/\s/g, '');
-  $('#expr').value = expr;
+  if(oldValue != expr) {
+    $('#expr').value = expr;
+  }
+
   var rules = $$('#rules li');
   for (var i = 0, l = rules.length; i < l; i++) {
     rules[i].className = '';
