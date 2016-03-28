@@ -5,10 +5,15 @@ function $$(selector) {
   return document.querySelectorAll(selector);
 }
 
+$('#expr').addEventListener('keydown', function(e) {
+  if (e.keyCode === 32) {
+    e.preventDefault();
+  }
+});
 $('#expr').addEventListener('input', function() {
   var oldValue = $('#expr').value;
   var expr = $('#expr').value.replace(/\s/g, '');
-  if(oldValue != expr) {
+  if (oldValue !== expr) {
     $('#expr').value = expr;
   }
 
