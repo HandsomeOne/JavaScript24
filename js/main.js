@@ -135,7 +135,7 @@ function print() {
     digits[i].className = 'animation-' + Math.floor(Math.random() * 6);
     digits[i].appendChild(digit);
   }
-  setTimeout(removeOldDigits, 500);
+  setTimeout(removeOldDigits, 1250);
 
   printStats();
 }

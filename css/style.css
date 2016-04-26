@@ -227,63 +227,77 @@ h1 {
 }
 #digits li.animation-0 > div:last-child {
   top: 0;
+  left: 100%;
   animation: animation-0 0.5s ease-out forwards;
 }
 @keyframes animation-0 {
-  from { left: 100%; }
   to { left: 0; }
 }
 #digits li.animation-1 > div:last-child {
   top: 0;
+  left: -100%;
   animation: animation-1 0.5s ease-out forwards;
 }
 @keyframes animation-1 {
-  from { left: -100%; }
   to { left: 0; }
 }
 #digits li.animation-2 > div:last-child {
   left: 0;
+  top: 100%;
   animation: animation-2 0.5s ease-out forwards;
 }
 @keyframes animation-2 {
-  from { top: 100%; }
   to { top: 0; }
 }
 #digits li.animation-3 > div:last-child {
   left: 0;
+  top: -100%;
   animation: animation-3 0.5s ease-out forwards;
 }
 @keyframes animation-3 {
-  from { top: -100%; }
   to { top: 0; }
 }
 #digits li.animation-4 > div {
   transform: scaleX(1);  
-  animation: animation-4-old 0.25s ease-in forwards;
+  animation: animation-4-old 0.5s ease-in forwards;
 }
 @keyframes animation-4-old {
+  50% { transform: scaleX(0); }
   to { transform: scaleX(0); }
 }
 #digits li.animation-4 > div:last-child {
   transform: scaleX(0);
-  animation: animation-4 0.25s 0.25s ease-out forwards;
+  animation: animation-4 0.5s ease-out forwards;
 }
 @keyframes animation-4 {
+  50% { transform: scaleX(0); }
   to { transform: scaleX(1); }
 }
 #digits li.animation-5 > div {
   transform: scaleY(1);  
-  animation: animation-5-old 0.25s ease-in forwards;
+  animation: animation-5-old 0.5s ease-in forwards;
 }
 @keyframes animation-5-old {
+  50% { transform: scaleY(0); }
   to { transform: scaleY(0); }
 }
 #digits li.animation-5 > div:last-child {
   transform: scaleY(0);
-  animation: animation-5 0.25s 0.25s ease-out forwards;
+  animation: animation-5 0.5s ease-out forwards;
 }
 @keyframes animation-5 {
+  50% { transform: scaleY(0); }
   to { transform: scaleY(1); }
+}
+
+#digits li:nth-child(2) > div {
+  animation-delay: 0.25s !important;
+}
+#digits li:nth-child(3) > div {
+  animation-delay: 0.5s !important;
+}
+#digits li:nth-child(4) > div {
+  animation-delay: 0.75s !important;
 }
 
 #hints {
