@@ -1,0 +1,10 @@
+CACHE MANIFEST
+# v1 - 2016-04-26
+js/main.js
+js/i18n.js
+css/style.css
+font/SourceSansPro-Bold.otf
+font/SourceSansPro-Regular.otf
+
+NETWORK:
+*
