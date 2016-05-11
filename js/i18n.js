@@ -1,4 +1,6 @@
+'use strict';
 var i18n = {};
+/* jshint -W069 */
 i18n['en'] = {
   won: "won",
   total: "total",
@@ -9,7 +11,7 @@ i18n['en'] = {
   rule2: "Each of the four given numerical digits <b>must appear once</b>, and <b>no other</b> digits are allowed.",
   rule3: "Besides digits, <b>only</b> these operators are allowed: <code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>%</code> <code>~</code> <code>&amp;</code> <code>|</code> <code>^</code> <code>&lt;&lt;</code> <code>&gt;&gt;</code> <code>(</code> <code>)</code> and <code>x</code>(after a given <code>0</code>).",
   rule4: "In additional, to avoid <code>-~</code> from appearing continuously, <code>-</code> is <b>not allowed</b> to be used as a unary operator.",
-}
+};
 i18n['zh-CN'] = {
   won: "已获胜",
   total: "总局数",

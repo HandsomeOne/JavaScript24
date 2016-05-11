@@ -1,3 +1,4 @@
+'use strict';
 function $(selector) {
   return document.querySelector(selector);
 }
@@ -45,6 +46,7 @@ $('#expr').addEventListener('input', function() {
       return;
     default:
       try {
+        /* jshint -W061 */
         var result = eval($('#expr').value);
         if (result === null) {
           $('#result').innerHTML = 'null';
@@ -63,7 +65,7 @@ function check(result) {
   var expr = $('#expr').value;
   var e = expr.replace(/(\d|\))-/g, /$1/).replace(/&&|\|\|/g, '#').replace(/>>|<<|[+*\/%~^&|()]/g, '').replace(/0x/ig, '0');
   var digitsAppeared = 0;
-  for (i = 0; i < 4; i++) {
+  for (var i = 0; i < 4; i++) {
     if (e.match(localStorage.digits[i])) {
       e = e.replace(localStorage.digits[i], '');
       digitsAppeared += 1;
@@ -101,7 +103,7 @@ function success() {
   $('#solution').className = 'animate';
   $('#solution').innerHTML = ' = ' + $('#expr').value;
   $('#expr').setAttribute('disabled', '');
-  setTimeout(function(params) {
+  setTimeout(function() {
     printStats();
     $('#stats').className = 'hover';
   }, 250);
