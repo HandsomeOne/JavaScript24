@@ -21,7 +21,7 @@ i18n['zh-CN'] = {
   rule0: "求一个<b>合法的</b> JavaScript 表达式，",
   rule1: "其值为<b>整数 24</b>。",
   rule2: "四个给定的数字<b>恰好</b>在表达式中出现一次，未给定数字<b>不允许</b>出现。",
-  rule3: "除数字外，表达式中<b>仅允许</b>包含下列运算符：<code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>%</code> <code>~</code> <code>&amp;</code> <code>|</code> <code>^</code> <code>&lt;&lt;</code> <code>&gt;&gt;</code> <code>(</code> <code>)</code> 以及 <code>x</code>(在给定的 <code>0</code> 后面)。<br><small>* 挑战自己！试着不使用小括号 <code>(</code> <code>)</code>。</small>",
+  rule3: "除数字外，表达式中<b>仅允许</b>包含下列运算符：<code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>%</code> <code>~</code> <code>&amp;</code> <code>|</code> <code>^</code> <code>&lt;&lt;</code> <code>&gt;&gt;</code> <code>(</code> <code>)</code> 以及 <code>x</code>（在给定的 <code>0</code> 后面）。<br><small>* 挑战自己！试着不使用小括号 <code>(</code> <code>)</code>。</small>",
   rule4: "另外，为了防止 <code>-~</code> 连续出现，<b>不允许</b>将 <code>-</code> 用作一元运算符。",
 };
 
