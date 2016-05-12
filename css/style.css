@@ -9,6 +9,13 @@
   src: url(../font/SourceSansPro-Regular.otf);
 }
 
+::-moz-selection {
+  background-color: transparent;
+}
+::selection {
+  background-color: transparent;
+}
+
 body {
   font-family: "Source Sans Pro", sans-serif;
   margin: 0 auto;
