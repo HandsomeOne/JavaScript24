@@ -6,12 +6,12 @@ function $$(selector) {
   return document.querySelectorAll(selector);
 }
 
-$('#expr').addEventListener('keydown', function(e) {
+$('#expr').addEventListener('keydown', function (e) {
   if (e.keyCode === 32) {
     e.preventDefault();
   }
 });
-$('#expr').addEventListener('input', function() {
+$('#expr').addEventListener('input', function () {
   var oldValue = $('#expr').value;
   var expr = $('#expr').value.replace(/\s/g, '');
   if (oldValue !== expr) {
@@ -39,7 +39,7 @@ $('#expr').addEventListener('input', function() {
       localStorage.total = + localStorage.total + 1;
       refresh();
       $('#stats').className = 'hover';
-      setTimeout(function() {
+      setTimeout(function () {
         $('#stats').className = '';
       }, 1500);
       $('#result').innerHTML = '';
@@ -103,19 +103,19 @@ function success() {
   $('#solution').className = 'animate';
   $('#solution').innerHTML = ' = ' + $('#expr').value;
   $('#expr').setAttribute('disabled', '');
-  setTimeout(function() {
+  setTimeout(function () {
     printStats();
     $('#stats').className = 'hover';
   }, 250);
-  setTimeout(function() {
+  setTimeout(function () {
     $('#stats').className = '';
   }, 1750);
-  setTimeout(function() {
+  setTimeout(function () {
     $('#result').className = '';
     $('#result').innerHTML = '';
     refresh();
   }, 2250);
-  setTimeout(function() {
+  setTimeout(function () {
     $('#solution').className = '';
     $('#solution').innerHTML = '';
   }, 2500);
@@ -169,5 +169,17 @@ function init() {
     resize();
   }
   print();
+}
+
+if (typeof localStorage === 'object') {
+  /* global Storage:false */
+  try {
+    localStorage.setItem('localStorage', 1);
+    localStorage.removeItem('localStorage');
+  } catch (e) {
+    Storage.prototype._setItem = Storage.prototype.setItem;
+    Storage.prototype.setItem = function () { };
+    alert('Your web browser does not support storing settings locally. In Safari, the most common cause of this is using "Private Browsing Mode". Some settings may not save or some features may not work properly for you.');
+  }
 }
 init();
