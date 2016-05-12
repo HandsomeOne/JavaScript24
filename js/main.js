@@ -11,6 +11,9 @@ $('#expr').addEventListener('keydown', function (e) {
     e.preventDefault();
   }
 });
+$('#expr').addEventListener('focus', function () {
+  $('#expr').placeholder = '';
+});
 $('#expr').addEventListener('input', function () {
   var oldValue = $('#expr').value;
   var expr = $('#expr').value.replace(/\s/g, '');
@@ -169,6 +172,10 @@ function init() {
     resize();
   }
   print();
+  setInterval(function () {
+    $('#expr').placeholder = document.activeElement === $('#expr') || $('#expr').placeholder ?
+      '' : '█';
+  }, 500);
 }
 
 if (typeof localStorage === 'object') {
