@@ -66,7 +66,7 @@ $('#expr').addEventListener('input', function () {
 function check(result) {
   var rules = $$('#rules li');
   var expr = $('#expr').value;
-  var e = expr.replace(/(\d|\))-/g, /$1/).replace(/&&|\|\|/g, '#').replace(/>>|<<|[+*\/%~^&|()]/g, '').replace(/0x/ig, '0');
+  var e = expr.replace(/(\d|\))-/g, /$1/).replace(/&&|\|\|/g, '#').replace(/>>|<<|[+*\/%~^&|()]/g, '').replace(/0x/ig, '0').replace(/0o/ig, '0');
   var digitsAppeared = 0;
   for (var i = 0; i < 4; i++) {
     if (e.match(localStorage.digits[i])) {
