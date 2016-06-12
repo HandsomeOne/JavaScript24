@@ -107,7 +107,7 @@ function success() {
   $('#solution').innerHTML = ' = ' + $('#expr').value;
   $('#expr').setAttribute('disabled', '');
   setTimeout(function () {
-    printStats();
+    showStats();
     $('#stats').className = 'hover';
   }, 250);
   setTimeout(function () {
@@ -125,13 +125,13 @@ function success() {
 }
 function refresh() {
   localStorage.digits = (Math.random() + '').substr(2, 4);
-  print();
+  show();
 
   $('#expr').value = '';
   $('#expr').removeAttribute('disabled');
   $('#expr').focus();
 }
-function print() {
+function show() {
   var digits = $$('#digits li');
   for (var i = 0; i < 4; i++) {
     var digit = document.createElement('div');
@@ -142,9 +142,9 @@ function print() {
   }
   setTimeout(removeOldDigits, 1250);
 
-  printStats();
+  showStats();
 }
-function printStats() {
+function showStats() {
   $('#won').innerHTML = localStorage.won;
   $('#total').innerHTML = localStorage.total;
   $('#average-length').innerHTML = localStorage.averageLength.substr(0, 4);
@@ -171,7 +171,7 @@ function init() {
     window.addEventListener('resize', resize);
     resize();
   }
-  print();
+  show();
   setInterval(function () {
     $('#expr').placeholder = document.activeElement === $('#expr') || $('#expr').placeholder ?
       '' : '█';
