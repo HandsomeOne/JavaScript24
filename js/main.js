@@ -25,7 +25,7 @@ $('#expr').addEventListener('input', function () {
   for (var i = 0, l = rules.length; i < l; i++) {
     rules[i].className = '';
   }
-  switch (expr) {
+  switch (expr.toLowerCase()) {
     case '':
       $('#result').innerHTML = '';
       return;
