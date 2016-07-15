@@ -49,7 +49,6 @@ $('#expr').addEventListener('input', function () {
       return;
     default:
       try {
-        /* jshint -W061 */
         var result = eval($('#expr').value);
         if (result === null) {
           $('#result').innerHTML = 'null';

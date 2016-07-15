@@ -1,6 +1,5 @@
 'use strict';
 var i18n = {};
-/* jshint -W069 */
 i18n['en'] = {
   won: "won",
   total: "total",
