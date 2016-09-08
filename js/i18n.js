@@ -27,6 +27,6 @@ var language = navigator.language.toLowerCase();
 if (!(language in i18n)) {
   language = 'en';
 }
-document.body.innerHTML = document.body.innerHTML.replace(/\{\{.*?\}\}/g, function(match) {
+document.body.innerHTML = document.body.innerHTML.replace(/\{\{.*?\}\}/g, function (match) {
   return i18n[language][match.slice(2, -2)];
 });
