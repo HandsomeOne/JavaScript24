@@ -1,0 +1,387 @@
+::selection {
+  background-color: transparent;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  margin: 0 auto;
+  max-width: 960px;
+  color: #373a33;
+  position: relative;
+  text-rendering: optimizeLegibility;
+}
+code {
+  font-family: 'Fira Code', monospace;
+}
+header {
+  font-size: 4rem;
+  overflow: hidden;
+  @media (max-width: 520px) {
+    & {
+      font-size: 3rem;
+    }
+  }
+}
+
+h1 {
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0;
+  height: 1.5625em;
+  position: relative;
+  letter-spacing: -0.05em;
+}
+#js-background {
+  position: absolute;
+  width: 0;
+  height: 1.5625em;
+  background-color: #ffcd00;
+  animation: js-background 0.5s ease-in forwards;
+}
+@keyframes js-background {
+  to { width: 1.5625em; }
+}
+
+#js {
+  position: absolute;
+  bottom: 0;
+  left: 0.125em;
+  color: #373a33;
+  opacity: 0;
+  animation: js 0.75s 0.25s ease-in-out forwards;
+}
+@keyframes js {
+  to { left: 0.375em; opacity: 1; }
+}
+
+#twenty-four {
+  position: absolute;
+  left: 2em;
+  bottom: 0;
+  color: #ffcd00;
+  white-space: nowrap;
+  opacity: 0;
+  animation: twenty-four 0.75s 0.25s ease-in-out forwards;
+}
+@keyframes twenty-four {
+  to { left: 1.75em; opacity: 1; }
+}
+
+#result {
+  position: absolute;
+  left: 1.75em;
+  bottom: 0;
+  max-width: calc(100% - 3.5em);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 0.05em;
+  box-sizing: border-box;
+  &.animate {
+    animation: fade-out 0.5s 1.75s forwards;
+  }
+}
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+#solution {
+  opacity: 0;
+  position: relative;
+  &::before {
+    content: "";
+    display: block;
+    height: 100%;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  &::after {
+    content: "";
+    display: block;
+    height: 100%;
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    right: 0;
+  }
+  &.animate {
+    opacity: 1;
+    animation: fade-out 0.5s 2s forwards;
+  }
+  &.animate::before {
+    animation: slide-in 0.5s 2s forwards;
+  }
+  &.animate::after {
+    animation: slide-out 0.5s 0.25s forwards;
+  }
+}
+@keyframes slide-in {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@keyframes slide-out {
+  from { width: 100%; }
+  to { width: 0; }
+}
+
+#stats {
+  background-color: #ffcd00;
+  width: 1.5625em;
+  height: 1.5625em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s;
+  &.hover,
+  &:hover {
+    opacity: 1;
+  }
+  td {
+    text-transform: uppercase;
+    vertical-align: top;
+    font-size: 0.1875em;
+    padding: 0 0.2em;
+    &[id] {
+      text-align: right;
+      font-weight: bold;
+    }
+  }
+}
+
+#digits {
+  margin: 0;
+  padding: 0;
+  width: 1.5625em;
+  height: 1.5625em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 50%;
+    height: 50%;
+    text-align: center;
+    font-size: 50%;
+    line-height: 1.5625em;
+    font-weight: bold;
+    position: absolute;
+    overflow: hidden;
+    &:nth-child(1) {
+      top: 0;
+      left: 0;
+    }
+    &:nth-child(2) {
+      top: 0;
+      left: 50%;
+    }
+    &:nth-child(3) {
+      top: 50%;
+      left: 0;
+    }
+    &:nth-child(4) {
+      top: 50%;
+      left: 50%;
+    }
+  }
+  .style-0 {
+    background: white;
+    color: #373a33;
+  }
+  .style-1 {
+    background: #ffcd00;
+    color: #373a33;
+  }
+  .style-2 {
+    background: #373a33;
+    color: #ffcd00;
+  }
+  .style-3 {
+    background: #373a33;
+    color: white;
+  }
+  li > div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+  li.animation-0 > div:last-child {
+    top: 0;
+    left: 100%;
+    animation: animation-0 0.5s ease-out forwards;
+  }
+  li.animation-1 > div:last-child {
+    top: 0;
+    left: -100%;
+    animation: animation-1 0.5s ease-out forwards;
+  }
+  li.animation-2 > div:last-child {
+    left: 0;
+    top: 100%;
+    animation: animation-2 0.5s ease-out forwards;
+  }
+  li.animation-3 > div:last-child {
+    left: 0;
+    top: -100%;
+    animation: animation-3 0.5s ease-out forwards;
+  }
+  li.animation-4 > div {
+    transform: scaleX(1);
+    animation: animation-4-old 0.5s ease-in forwards;
+  }
+  li.animation-4 > div:last-child {
+    transform: scaleX(0);
+    animation: animation-4 0.5s ease-out forwards;
+  }
+  li.animation-5 > div {
+    transform: scaleY(1);
+    animation: animation-5-old 0.5s ease-in forwards;
+  }
+  li.animation-5 > div:last-child {
+    transform: scaleY(0);
+    animation: animation-5 0.5s ease-out forwards;
+  }
+  li:nth-child(2) > div {
+    animation-delay: 0.25s !important;
+  }
+  li:nth-child(3) > div {
+    animation-delay: 0.5s !important;
+  }
+  li:nth-child(4) > div {
+    animation-delay: 0.75s !important;
+  }
+}
+@keyframes animation-0 {
+  to { left: 0; }
+}
+@keyframes animation-1 {
+  to { left: 0; }
+}
+@keyframes animation-2 {
+  to { top: 0; }
+}
+@keyframes animation-3 {
+  to { top: 0; }
+}
+@keyframes animation-4-old {
+  50% { transform: scaleX(0); }
+  to { transform: scaleX(0); }
+}
+@keyframes animation-4 {
+  50% { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes animation-5-old {
+  50% { transform: scaleY(0); }
+  to { transform: scaleY(0); }
+}
+@keyframes animation-5 {
+  50% { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+#hints {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1.5625em;
+  height: 1.5625em;
+  text-align: center;
+  background: #373a33;
+  color: #ffcd00;
+  display: table;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  &:hover {
+    opacity: 1;
+  }
+  & > div {
+    font-size: 0.25em;
+    display: table-cell;
+    vertical-align: middle;
+  }
+  code {
+    font-weight: bold;
+    background-color: #ffcd00;
+    color: #373a33;
+    padding: 0 0.2em;
+  }
+}
+
+#expr-wrapper {
+  position: relative;
+  font-family: 'Fira Code', monospace;
+}
+#expr-caret {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  color: white;
+  line-height: 0;
+  opacity: 0.5;
+}
+#expr {
+  font-family: 'Fira Code', monospace;
+  background-color: #373a33;
+  color: white;
+  border-radius: 0;
+  margin: 0;
+  width: 100%;
+  border-width: 0;
+  box-sizing: border-box;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 10px;
+  padding-left: 36px;
+  text-align: right;
+  &:focus {
+    outline: 0 none;
+  }
+}
+
+#rules {
+  margin: 16px 0;
+  padding: 0;
+  li {
+    list-style-type: none;
+    line-height: 22px;
+    padding: 4px 16px;
+    transition: background-color 0.5s;
+    b {
+      text-shadow: 0 -4px 0 white;
+    }
+    &.bad {
+      background-color: #ffcd00;
+    }
+  }
+  code {
+    font-weight: bold;
+    background-color: #373a33;
+    color: #ffcd00;
+    padding: 0 0.2em;
+  }
+}
+
+footer {
+  text-align: center;
+  height: 32px;
+  line-height: 32px;
+  position: relative;
+  border: 4px solid #373a33;
+  transition: background-color 0.5s;
+  &:hover {
+    background-color: #ffcd00;
+  }
+  a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #373a33;
+    display: block;
+  }
+}

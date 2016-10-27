@@ -1,0 +1,41 @@
+{
+  "name": "javascript-24",
+  "version": "1.0.0",
+  "description": "A minimal arithmetical game with JavaScript syntax.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "webpack-dev-server -d --inline --hot",
+    "build": "webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HandsomeOne/JavaScript24.git"
+  },
+  "keywords": [
+    "javascript",
+    "arithmetic",
+    "game"
+  ],
+  "author": "Zhou Qi <i@handsomeone.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HandsomeOne/JavaScript24/issues"
+  },
+  "homepage": "https://github.com/HandsomeOne/JavaScript24#readme",
+  "devDependencies": {
+    "autoprefixer": "^6.5.1",
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-latest": "^6.16.0",
+    "css-loader": "^0.25.0",
+    "eslint": "^3.8.0",
+    "eslint-config-airbnb-base": "^9.0.0",
+    "eslint-plugin-import": "^2.0.1",
+    "node-sass": "^3.10.1",
+    "postcss-loader": "^1.0.0",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
