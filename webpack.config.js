@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint import/no-extraneous-dependencies: 0 */
 const autoprefixer = require('autoprefixer')
 const path = require('path')
 
@@ -18,6 +18,9 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel',
+        query: {
+          presets: ['latest'],
+        },
       },
     ],
   },
