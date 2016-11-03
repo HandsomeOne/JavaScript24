@@ -4,7 +4,7 @@ export default function () {
       won: 'won',
       total: 'total',
       averageLength: 'average length',
-      tooHard: 'Too difficult?<br>type <code>skip</code>',
+      tooHard: 'too difficult?<br>type <code>skip</code>',
       rule0: 'Find a <b>valid</b> JavaScript expression',
       rule1: 'whose value is <b>(Number)24</b>.',
       rule2: 'Each of the four given numerical digits <b>must appear once</b>, and <b>no other</b> digits are allowed.',

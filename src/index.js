@@ -88,7 +88,7 @@ function check(result) {
   let e = expr
     .replace(/(\d|\))-/g, /$1/)
     .replace(/&&|\|\|/g, '#')
-    .replace(/>>|<<|[+*\/%~^&|()]/g, '')
+    .replace(/>>|<<|[+*/%~^&|()]/g, '')
     .replace(/0x|0o/ig, '0')
   let digitsAppeared = 0
   for (let i = 0; i < 4; i += 1) {
@@ -191,4 +191,8 @@ $expr.addEventListener('input', () => {
         $rules[0].className = 'bad'
       }
   }
+})
+
+document.addEventListener('keydown', () => {
+  $expr.focus()
 })
