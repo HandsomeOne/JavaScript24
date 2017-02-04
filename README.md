@@ -2,6 +2,8 @@
 
 A minimal arithmetical game with JavaScript syntax.
 
+![demo](http://i.imgur.com/ih9nPau.gif)
+
 If embedded in another page, use the following code to sync `iframe`'s height.
 
 ```javascript
